@@ -166,7 +166,7 @@ def create_voting(voters, candidates):
     print("\n")
     print_connections(names, connections, voters, candidates)
     
-    winner_borda, _ = ranked_choice_voting(candidateRanking, order_candidates(candidateRanking, voters, candidates), voters, candidates)
+    winner_borda, eliminated_canidates = ranked_choice_voting(candidateRanking, order_candidates(candidateRanking, voters, candidates), voters, candidates)
 
     cardinal_utility_borda, ordinal_utility_borda = calculate_social_welfare(winner_borda, candidateRanking, voters)
 
@@ -174,6 +174,7 @@ def create_voting(voters, candidates):
     
     print("\nBorda Method:")
     print("Winner:", winner_borda)
+    print(f"Eliminated canidates in order: {eliminated_canidates}")
     print("Social Welfare - Cardinal Utility:", cardinal_utility_borda)
     print("Social Welfare - Ordinal Utility:", ordinal_utility_borda)
 
